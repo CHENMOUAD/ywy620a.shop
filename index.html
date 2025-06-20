@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>農業とAI - スマート農業の新時代</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        tech: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            200: '#bfdbfe',
+                            300: '#93c5fd',
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a'
+                        },
+                        green: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d'
+                        }
+                    },
+                    fontFamily: {
+                        'jp': ['Noto Sans JP', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        
+        .tech-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #22c55e 100%);
+        }
+        
+        .ai-pattern {
+            background-image: 
+                radial-gradient(circle at 2px 2px, rgba(59, 130, 246, 0.3) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        
+        .card-tech {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .card-tech:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25);
+        }
+        
+        .text-gradient-tech {
+            background: linear-gradient(135deg, #3b82f6, #22c55e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .dark .bg-white {
+            background-color: #181818;
+        }
+        
+        .dark .bg-gray-50 {
+            background-color: #1f1f1f;
+        }
+        
+        .dark .bg-gray-100 {
+            background-color: #2a2a2a;
+        }
+        
+        .dark .text-gray-900 {
+            color: #ffffff;
+        }
+        
+        .dark .text-gray-800 {
+            color: #e5e5e5;
+        }
+        
+        .dark .text-gray-600 {
+            color: #a1a1aa;
+        }
+        
+        .dark .border-gray-200 {
+            border-color: #374151;
+        }
+
+        .dark .card-tech {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+    <!-- Hero Section -->
+    <section class="tech-gradient ai-pattern text-white py-20 px-4 overflow-hidden relative">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-white rounded-full animate-float"></div>
+            <div class="absolute top-40 right-20 w-24 h-24 bg-green-300 rounded-full animate-pulse-slow"></div>
+            <div class="absolute bottom-20 left-1/4 w-20 h-20 bg-blue-300 rounded-full animate-float" style="animation-delay: 2s;"></div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                農業と人工知能
+                <span class="block text-2xl md:text-4xl font-light mt-2">
+                    スマート農業の新時代を拓く
+                </span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-4xl mx-auto leading-relaxed">
+                グローバル経済が急速に発展する今日、人類生存の基盤である農業は深刻な変革を経験しています。人工知能（AI）の台頭により、伝統的な農業に新たな活力が注入され、農業は知能化・精密化の方向へと進歩しています。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+                <button class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors shadow-lg">
+                    AIソリューション
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors">
+                    技術詳細
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <!-- Section 1: スマート農業の台頭 -->
+            <div class="mb-16">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gradient-tech">
+                            1. スマート農業の台頭
+                        </h2>
+                        <p class="text-lg md:text-xl leading-relaxed text-gray-600 dark:text-gray-300 mb-6">
+                            人工知能技術の応用により、農業生産はもはや経験と直感に依存しません。データ分析とアルゴリズム最適化を通じて、農家はより精密な作物栽培、病害虫防除、資源管理を行うことができます。
+                        </p>
+                        <p class="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+                            この変革は生産効率を向上させるだけでなく、資源の無駄を削減し、持続可能な発展を推進しています。
+                        </p>
+                    </div>
+                    <div class="card-tech p-8 rounded-2xl text-white">
+                        <div class="text-6xl mb-4">🤖</div>
+                        <h3 class="text-2xl font-semibold mb-4">AI技術の優位性</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
+                                データ駆動型意思決定
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-green-400 rounded-full mr-3"></span>
+                                精密農業の実現
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-purple-400 rounded-full mr-3"></span>
+                                自動化と効率化
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: データ駆動の意思決定 -->
+            <div class="mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gradient-tech">
+                    2. データ駆動型意思決定
+                </h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-tech-50 dark:bg-gray-800 p-6 rounded-xl text-center">
+                        <div class="text-4xl mb-3">📡</div>
+                        <h3 class="font-semibold mb-2">センサー技術</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">リアルタイム環境監視</p>
+                    </div>
+                    <div class="bg-green-50 dark:bg-gray-800 p-6 rounded-xl text-center">
+                        <div class="text-4xl mb-3">🚁</div>
+                        <h3 class="font-semibold mb-2">ドローン監視</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">広域農地の効率的監視</p>
+                    </div>
+                    <div class="bg-purple-50 dark:bg-gray-800 p-6 rounded-xl text-center">
+                        <div class="text-4xl mb-3">🌐</div>
+                        <h3 class="font-semibold mb-2">IoTネットワーク</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">機器間の連携制御</p>
+                    </div>
+                    <div class="bg-orange-50 dark:bg-gray-800 p-6 rounded-xl text-center">
+                        <div class="text-4xl mb-3">💧</div>
+                        <h3 class="font-semibold mb-2">スマート灌漑</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">自動水量調整システム</p>
+                    </div>
+                </div>
+                <div class="mt-8 bg-gradient-to-r from-blue-50 to-green-50 dark:from-gray-800 dark:to-gray-700 p-8 rounded-2xl">
+                    <p class="text-lg text-center text-gray-700 dark:text-gray-300">
+                        <strong>スマート農業では、データが最も貴重な資源です。</strong><br>
+                        AIはこれらのデータを分析し、農家に精密な意思決定支援を提供します。例えば、スマート灌漑システムは土壌湿度と気候変化に基づいて自動的に水量を調整し、節水と作物収量向上を実現します。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 3: 病害虫のスマート防除 -->
+            <div class="mb-16">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="bg-gradient-to-br from-red-50 to-orange-50 dark:from-gray-800 dark:to-gray-700 p-8 rounded-2xl order-2 md:order-1">
+                        <div class="text-6xl mb-4">🔍</div>
+                        <h3 class="text-2xl font-semibold mb-4">AI画像認識技術</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-4 h-4 bg-red-500 rounded-full mt-1 mr-3 flex-shrink-0"></div>
+                                <div>
+                                    <span class="font-medium">早期発見</span>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300">病害虫の初期段階での検出</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-4 h-4 bg-orange-500 rounded-full mt-1 mr-3 flex-shrink-0"></div>
+                                <div>
+                                    <span class="font-medium">精密診断</span>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300">病害の種類と進行度の正確な判定</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-4 h-4 bg-green-500 rounded-full mt-1 mr-3 flex-shrink-0"></div>
+                                <div>
+                                    <span class="font-medium">最適処方</span>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300">個別対応型防除プランの提案</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gradient-tech">
+                            3. 病害虫のスマート防除
+                        </h2>
+                        <p class="text-lg md:text-xl leading-relaxed text-gray-600 dark:text-gray-300 mb-6">
+                            従来の病害虫防除は人工観察と経験判断に依存し、効率が低く誤りが生じやすいものでした。AI技術の活用により、農家は画像認識と機械学習を通じて病害虫を迅速に識別し、対応する防除方案を策定できます。
+                        </p>
+                        <p class="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+                            この知能化管理方式は作物の健康レベルを向上させるだけでなく、化学農薬の使用を効果的に削減し、生態環境を保護します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: 精密農業の経済効果 -->
+            <div class="mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gradient-tech">
+                    4. 精密農業の経済効果
+                </h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="text-5xl mb-4">📈</div>
+                        <h3 class="text-xl font-semibold mb-4 text-green-600">生産効率向上</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            精密施肥と灌漑により、農家は土地利用率を最大限に高め、生産コストを削減できます。
+                        </p>
+                        <div class="bg-green-100 dark:bg-green-900/30 p-3 rounded-lg">
+                            <span class="text-sm font-medium text-green-800 dark:text-green-200">コスト削減20-30%</span>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="text-5xl mb-4">🎯</div>
+                        <h3 class="text-xl font-semibold mb-4 text-blue-600">市場予測</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            データ分析により農家は市場需要を予測し、栽培計画を合理的に安排して製品の市場競争力を確保できます。
+                        </p>
+                        <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-lg">
+                            <span class="text-sm font-medium text-blue-800 dark:text-blue-200">収益向上15-25%</span>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+                        <div class="text-5xl mb-4">🌱</div>
+                        <h3 class="text-xl font-semibold mb-4 text-purple-600">持続可能性</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            農家の収入向上と同時に、農業全体の発展を推進し、環境負荷を軽減します。
+                        </p>
+                        <div class="bg-purple-100 dark:bg-purple-900/30 p-3 rounded-lg">
+                            <span class="text-sm font-medium text-purple-800 dark:text-purple-200">環境負荷削減40%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: 未来展望 -->
+            <div class="mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-gradient-tech">
+                    5. 未来展望
+                </h2>
+                <div class="tech-gradient text-white p-8 rounded-2xl mb-8">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                        <div>
+                            <div class="text-4xl mb-2">🚜</div>
+                            <h3 class="font-semibold mb-2">自動化収穫</h3>
+                            <p class="text-sm opacity-90">AI制御ロボットによる完全自動収穫</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl mb-2">🌾</div>
+                            <h3 class="font-semibold mb-2">スマート栽培</h3>
+                            <p class="text-sm opacity-90">最適環境制御による高品質作物生産</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl mb-2">📦</div>
+                            <h3 class="font-semibold mb-2">精密物流</h3>
+                            <p class="text-sm opacity-90">収穫から配送まで一体化管理</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl mb-2">🔬</div>
+                            <h3 class="font-semibold mb-2">バイオテクノロジー</h3>
+                            <p class="text-sm opacity-90">遺伝子解析による品種改良</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-lg md:text-xl text-center text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
+                    技術の継続的な進歩により、農業とAIの結合はより緊密になります。これらの革新は従来農業の姿を大きく変え、より効率的で持続可能なものにするでしょう。
+                </p>
+            </div>
+
+            <!-- 結語 -->
+            <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 text-gradient-tech">
+                    結語
+                </h2>
+                <div class="max-w-4xl mx-auto">
+                    <p class="text-lg md:text-xl leading-relaxed text-gray-600 dark:text-gray-300 mb-8">
+                        農業と人工知能の結合は、私たちに美しい青写真を描いています。スマート農業の台頭は、従来農業の革新であるだけでなく、人類の未来の食料安全と生態バランスへの約束でもあります。
+                    </p>
+                    <div class="tech-gradient text-white p-8 rounded-2xl">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4">
+                            この探求の道において、共に科学技術の力を受け入れ、<br>
+                            農業の知能化転換を推進し、子孫のためにより美しい明日を創造しましょう！
+                        </h3>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+                            <button class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors">
+                                AIソリューション体験
+                            </button>
+                            <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-600 transition-colors">
+                                詳細資料ダウンロード
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 dark:bg-gray-800 py-12 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                ※ AI技術の導入には適切な計画と専門知識が必要です。
+            </p>
+            <p class="text-sm text-gray-500 dark:text-gray-400">
+                © 2024 スマート農業イノベーションセンター. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode detection and toggle
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Interactive button animations
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for scroll animations
+        document.querySelectorAll('section > div').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
